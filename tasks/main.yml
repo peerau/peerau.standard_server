@@ -11,6 +11,7 @@
    - python
    - tmux
    - byobu
+   - silversearcher-ag # debian name, dunno for other distros
 
 - name: Create sshd_config
   copy: src=sshd_config.txt dest=/etc/ssh/sshd_config
@@ -28,6 +29,22 @@
   cron: 
     name: "update motd+issue"
     job: "/etc/banner.sh"
+
+- name: Remove PAMd motd (login+ssh rules)
+  pamd:
+    name: login
+    type: session
+    control: optional
+    module_path: pam_motd.so
+    module_arguments: ''
+    state: absent
+  pamd:
+    name: ssh
+    type: session
+    control: optional
+    module_path: pam_motd.so
+    module_arguments: ''
+    state: absent
 
 - name: Restart sshd
   service:

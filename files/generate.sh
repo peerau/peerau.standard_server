@@ -11,7 +11,7 @@ System Summary (collected `date`)
  - System Uptime             =`uptime`
  - Private IP                = `ip a | grep 'inet ' |grep -v 'inet 127' | awk {'print $2'}`
  - Public IP                 = `dig +short myip.opendns.com @resolver1.opendns.com`
- - Disk Space Used           = `df / | awk '{ a = $4 } END { print a }'`
+ - Disk Space Used           = `df -h / | tail -n1 | awk {'printf "%s/%s %s (%s Used)", $3, $2, $5, $4'}`
  
 " > /etc/motd
 
