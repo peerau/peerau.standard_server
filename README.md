@@ -1,4 +1,4 @@
-peerau.sshd
+peerau.standard_server
 =========
 
 Sets configs and keys for a standard bsys server
