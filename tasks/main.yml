@@ -39,9 +39,9 @@
     module_arguments: ''
     state: absent
 
-- name: Remove PAMd motd (ssh rule)
+- name: Remove PAMd motd (sshd rule)
   pamd:
-    name: ssh
+    name: sshd
     type: session
     control: optional
     module_path: pam_motd.so
