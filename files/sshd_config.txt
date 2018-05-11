@@ -27,7 +27,7 @@ PermitEmptyPasswords            no
 ChallengeResponseAuthentication no
 UsePAM                          yes
 X11Forwarding                   no
-PrintMotd                       yes
+PrintMotd                       no
 Banner                          /etc/issue
 AcceptEnv                  LANG LC_*
 Subsystem                  sftp /usr/lib/openssh/sftp-server

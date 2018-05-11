@@ -30,24 +30,6 @@
     name: "update motd+issue"
     job: "/etc/banner.sh"
 
-- name: Remove PAMd motd (login rule)
-  pamd:
-    name: login
-    type: session
-    control: optional
-    module_path: pam_motd.so
-    module_arguments: ''
-    state: absent
-
-- name: Remove PAMd motd (sshd rule)
-  pamd:
-    name: sshd
-    type: session
-    control: optional
-    module_path: pam_motd.so
-    module_arguments: ''
-    state: absent
-
 - name: Restart sshd
   service:
     name: ssh
