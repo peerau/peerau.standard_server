@@ -1,0 +1,24 @@
+---
+# tasks file for peerau.standard_server
+- name: Create sshd_config
+  copy: src=sshd_config.txt dest=/etc/ssh/sshd_config
+
+- name: Install admin keys
+  authorized_key:
+    user: root
+    state: present
+    key: https://client-config-a.backslash.systems/client/STAFF/bsys-peer.key
+
+- name: Create /etc/motd+issue generator
+  copy: src=generate.sh dest=/etc/banner.sh mode=o+x
+
+- name: Create crontab entry for motd and issue
+  cron: 
+    name: "update motd+issue"
+    job: "/etc/banner.sh"
+
+- name: Restart sshd
+  service:
+    name: ssh
+    state: restarted
+    
