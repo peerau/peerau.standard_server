@@ -4,10 +4,10 @@ CPUCORES=$(cat /proc/cpuinfo | grep -c processor)
 echo "
 System Summary (collected `date`)
  
- - CPU Usage (average)       = `echo $CPUTIME / $CPUCORES | bc`
- - Memory free (real)        = `free -m | head -n 2 | tail -n 1 | awk {'print $4'}`
- - Memory free (cache)       = `free -m | head -n 3 | tail -n 1 | awk {'print $3'}`
- - Swap in use               = `free -m | tail -n 1 | awk {'print $3'}`
+ - CPU Usage (average)       = `echo $CPUTIME / $CPUCORES | bc`%
+ - Memory free (real)        = `free -m | head -n 2 | tail -n 1 | awk {'print $4'}`MB
+ - Memory free (cache)       = `free -m | head -n 3 | tail -n 1 | awk {'print $3'}`MB
+ - Swap in use               = `free -m | tail -n 1 | awk {'print $3'}`MB
  - System Uptime             =`uptime`
  - Private IP                = `ip a | grep 'inet ' |grep -v 'inet 127' | awk {'print $2'}`
  - Public IP                 = `dig +short myip.opendns.com @resolver1.opendns.com`
