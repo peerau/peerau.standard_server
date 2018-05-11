@@ -1,5 +1,17 @@
 ---
 # tasks file for peerau.standard_server
+- name: Install list of packages
+  apt: name={{item}} state=installed
+  with_items:
+   - vim-nox
+   - dnsutils
+   - bc
+   - git
+   - ruby
+   - python
+   - tmux
+   - byobu
+
 - name: Create sshd_config
   copy: src=sshd_config.txt dest=/etc/ssh/sshd_config
 
@@ -21,4 +33,3 @@
   service:
     name: ssh
     state: restarted
-    
