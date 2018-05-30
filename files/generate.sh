@@ -9,7 +9,7 @@ System Summary (collected `date`)
  - Memory free (cache)       = `free -m | head -n 3 | tail -n 1 | awk {'print $3'}`MB
  - Swap in use               = `free -m | tail -n 1 | awk {'print $3'}`MB
  - System Uptime             =`uptime`
- - Private IP                = `ip a | grep 'inet ' |grep -v 'inet 127' | awk {'print $2'}`
+ - Private IP                = `hostname -i`
  - Public IP                 = `dig +short myip.opendns.com @resolver1.opendns.com`
  - Disk Space Used           = `df -h / | tail -n1 | awk {'printf "%s/%s %s (%s Free)", $3, $2, $5, $4'}`
  
