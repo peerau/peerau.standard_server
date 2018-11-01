@@ -14,7 +14,7 @@
    - silversearcher-ag # debian name, dunno for other distros
 
 - name: Create sshd_config
-  copy: src=sshd_config.txt dest=/etc/ssh/sshd_config
+  template: src=templates/sshd_config.txt dest=/etc/ssh/sshd_config
 
 - name: Install admin keys
   authorized_key:

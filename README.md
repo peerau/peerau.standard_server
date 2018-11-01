@@ -6,7 +6,7 @@ Sets configs and keys for a standard bsys server
 Requirements
 ------------
 
-pkg: dig[dnsutils] bc
+pkg: sshd[if not local] \(all other deps installed by role)
 
 Role Variables
 --------------
