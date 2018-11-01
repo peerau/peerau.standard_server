@@ -3,7 +3,7 @@ galaxy_info:
   description: Standard server setup [WIP]
   company: backslash systems
 
-  license: GPL-3.0-or-later
+  license: unlicense
 
   min_ansible_version: 1.2
 
