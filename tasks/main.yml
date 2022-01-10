@@ -1,17 +1,18 @@
 ---
 # tasks file for peerau.standard_server
 - name: Install list of packages
-  apt: name={{item}} state=present
-  with_items:
-   - vim-nox
-   - dnsutils
-   - bc
-   - git
-   - ruby
-   - python
-   - tmux
-   - byobu
-   - silversearcher-ag # debian name, dunno for other distros
+  apt:
+    state: present
+    name:
+    - vim-nox
+    - dnsutils
+    - bc
+    - git
+    - ruby
+    - python
+    - tmux
+    - byobu
+    - silversearcher-ag # debian name, dunno for other distros
 
 - name: Create sshd_config
   template: src=templates/sshd_config.txt dest=/etc/ssh/sshd_config
