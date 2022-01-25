@@ -8,12 +8,6 @@
 - name: Create sshd_config
   template: src=templates/sshd_config.txt dest=/etc/ssh/sshd_config
 
-- name: Install admin keys
-  authorized_key:
-    user: root
-    state: present
-    key: https://github.com/peerau.keys
-
 - name: Create /etc/motd+issue generator
   copy: src=generate.sh dest=/etc/banner.sh mode=o+x
 
@@ -26,3 +20,10 @@
   service:
     name: ssh
     state: restarted
+    
+- name: Install admin keys
+  authorized_key:
+    user: root
+    state: present
+    key: https://github.com/peerau.keys
+    
