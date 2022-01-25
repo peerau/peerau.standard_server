@@ -3,16 +3,7 @@
 - name: Install list of packages
   apt:
     state: present
-    name:
-    - vim-nox
-    - dnsutils
-    - bc
-    - git
-    - ruby
-    - python
-    - tmux
-    - byobu
-    - silversearcher-ag # debian name, dunno for other distros
+    name: ['vim-nox', 'dnsutils', 'bc', 'git', 'ruby', 'python', 'tmux', 'byobu', 'silversearcher-ag']
 
 - name: Create sshd_config
   template: src=templates/sshd_config.txt dest=/etc/ssh/sshd_config
